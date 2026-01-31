@@ -1,0 +1,275 @@
+---
+const projects = [
+	{
+		title: "Chi-Match",
+		description: "Mobile matching app built with Expo & React Native. Uses Clerk for auth, Convex for real-time backend, and features smooth haptic feedback and native animations.",
+		tags: ["React Native", "Expo", "Convex", "Clerk"],
+		link: "https://github.com/AyoubSen",
+		featured: true,
+		emoji: "01",
+	},
+	{
+		title: "Dofus Planner",
+		description: "Game planning tool built with Next.js and Supabase. Helps players organize and optimize their in-game strategies with a clean, responsive interface.",
+		tags: ["Next.js", "Supabase", "React", "Tailwind"],
+		link: "https://github.com/AyoubSen",
+		featured: true,
+		emoji: "02",
+	},
+	{
+		title: "TSW Games",
+		description: "Multiplayer game platform using TanStack Start and PartyKit for real-time interactions. Features lobby systems, live game state sync, and responsive design.",
+		tags: ["TanStack Start", "PartyKit", "React", "WebSocket"],
+		link: "https://github.com/AyoubSen",
+		featured: true,
+		emoji: "03",
+	},
+	{
+		title: "Word Guesser",
+		description: "Real-time multiplayer word guessing game with Socket.io. Animated UI with Framer Motion, live scoring, and room-based gameplay.",
+		tags: ["Next.js", "Socket.io", "Framer Motion"],
+		link: "https://github.com/AyoubSen",
+		featured: false,
+		emoji: "04",
+	},
+	{
+		title: "Discord Companion Bot",
+		description: "Feature-rich Discord bot built with Discord.js and Node.js. Handles server moderation, custom commands, and community engagement utilities.",
+		tags: ["Discord.js", "Node.js", "JavaScript"],
+		link: "https://github.com/AyoubSen/PoorLittleShitv1",
+		featured: false,
+		emoji: "05",
+	},
+	{
+		title: "Clean LinkedIn",
+		description: "Browser extension that removes visual clutter from LinkedIn's interface. Simple, effective, and focused on improving daily UX.",
+		tags: ["Browser Extension", "JavaScript", "CSS"],
+		link: "https://github.com/AyoubSen",
+		featured: false,
+		emoji: "06",
+	},
+];
+---
+
+<section class="projects" id="projects">
+	<div class="projects-inner">
+		<div class="section-label">
+			<span class="label-line"></span>
+			<span class="label-text">Projects</span>
+		</div>
+
+		<h2 class="projects-heading">
+			Selected work
+		</h2>
+
+		<div class="projects-grid">
+			{projects.map((project) => (
+				<a
+					href={project.link}
+					target="_blank"
+					rel="noopener"
+					class:list={["project-card", { featured: project.featured }]}
+				>
+					<div class="card-top">
+						<span class="card-number">{project.emoji}</span>
+						<svg class="card-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+							<line x1="7" y1="17" x2="17" y2="7"></line>
+							<polyline points="7 7 17 7 17 17"></polyline>
+						</svg>
+					</div>
+					<h3 class="card-title">{project.title}</h3>
+					<p class="card-desc">{project.description}</p>
+					<div class="card-tags">
+						{project.tags.map((tag) => (
+							<span class="card-tag">{tag}</span>
+						))}
+					</div>
+				</a>
+			))}
+		</div>
+
+		<div class="projects-more">
+			<a href="https://github.com/AyoubSen" target="_blank" rel="noopener" class="more-link">
+				View all projects on GitHub
+				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="5" y1="12" x2="19" y2="12"></line>
+					<polyline points="12 5 19 12 12 19"></polyline>
+				</svg>
+			</a>
+		</div>
+	</div>
+</section>
+
+<style>
+	.projects {
+		padding: 8rem 2rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.projects-inner {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.section-label {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.label-line {
+		width: 40px;
+		height: 1px;
+		background: var(--accent);
+	}
+
+	.label-text {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.projects-heading {
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		margin-bottom: 3rem;
+	}
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1px;
+		background: var(--border);
+		border: 1px solid var(--border);
+		border-radius: 16px;
+		overflow: hidden;
+	}
+
+	.project-card {
+		background: var(--bg-elevated);
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		transition: all 0.3s ease;
+		cursor: pointer;
+		text-decoration: none;
+		color: inherit;
+	}
+
+	.project-card:hover {
+		background: var(--bg-card);
+	}
+
+	.project-card:hover .card-arrow {
+		transform: translate(3px, -3px);
+		color: var(--accent);
+	}
+
+	.project-card:hover .card-title {
+		color: var(--accent);
+	}
+
+	.project-card.featured {
+		grid-column: span 1;
+	}
+
+	.card-top {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 1.5rem;
+	}
+
+	.card-number {
+		font-family: var(--font-mono);
+		font-size: 0.75rem;
+		color: var(--text-muted);
+	}
+
+	.card-arrow {
+		color: var(--text-muted);
+		transition: all 0.3s ease;
+	}
+
+	.card-title {
+		font-size: 1.25rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.75rem;
+		transition: color 0.3s;
+	}
+
+	.card-desc {
+		font-size: 0.875rem;
+		line-height: 1.6;
+		color: var(--text-muted);
+		margin-bottom: 1.5rem;
+		flex: 1;
+	}
+
+	.card-tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.4rem;
+	}
+
+	.card-tag {
+		font-size: 0.7rem;
+		font-family: var(--font-mono);
+		color: var(--text-muted);
+		padding: 0.25rem 0.6rem;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+	}
+
+	.projects-more {
+		margin-top: 3rem;
+		text-align: center;
+	}
+
+	.more-link {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		font-size: 0.9rem;
+		color: var(--text-muted);
+		transition: color 0.2s;
+		font-family: var(--font-mono);
+	}
+
+	.more-link:hover {
+		color: var(--accent);
+	}
+
+	.more-link svg {
+		transition: transform 0.2s;
+	}
+
+	.more-link:hover svg {
+		transform: translateX(4px);
+	}
+
+	@media (max-width: 900px) {
+		.projects-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 640px) {
+		.projects {
+			padding: 5rem 1.25rem;
+		}
+
+		.projects-grid {
+			grid-template-columns: 1fr;
+		}
+
+		.project-card {
+			padding: 1.5rem;
+		}
+	}
+</style>
