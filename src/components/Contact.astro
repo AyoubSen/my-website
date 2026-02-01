@@ -3,21 +3,21 @@
 
 <section class="contact" id="contact">
 	<div class="contact-inner">
-		<div class="section-label">
+		<div class="section-label reveal">
 			<span class="label-line"></span>
 			<span class="label-text">Contact</span>
 		</div>
 
 		<div class="contact-content">
-			<h2 class="contact-heading">
+			<h2 class="contact-heading reveal reveal-delay-1">
 				Let's work<br /><span class="text-accent">together.</span>
 			</h2>
-			<p class="contact-sub">
+			<p class="contact-sub reveal reveal-delay-2">
 				Have a project in mind or just want to chat? I'm always open to new opportunities
 				and interesting conversations.
 			</p>
 
-			<div class="contact-links">
+			<div class="contact-links reveal reveal-delay-3">
 				<a href="mailto:ayoubsenhajihamim@gmail.com" class="contact-link-primary">
 					<span class="link-label">Email</span>
 					<span class="link-value">ayoubsenhajihamim@gmail.com</span>
@@ -121,6 +121,7 @@
 		border-radius: 12px;
 		transition: all 0.3s ease;
 		max-width: 500px;
+		flex-wrap: wrap;
 	}
 
 	.contact-link-primary:hover {
@@ -139,6 +140,8 @@
 		color: var(--text-muted);
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
+		width: 100%;
+		margin-bottom: -0.25rem;
 	}
 
 	.link-value {
@@ -150,15 +153,6 @@
 	.contact-link-primary svg {
 		color: var(--text-muted);
 		transition: all 0.3s ease;
-	}
-
-	.contact-link-primary {
-		flex-wrap: wrap;
-	}
-
-	.link-label {
-		width: 100%;
-		margin-bottom: -0.25rem;
 	}
 
 	.contact-socials {

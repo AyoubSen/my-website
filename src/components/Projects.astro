@@ -53,16 +53,16 @@ const projects = [
 
 <section class="projects" id="projects">
 	<div class="projects-inner">
-		<div class="section-label">
+		<div class="section-label reveal">
 			<span class="label-line"></span>
 			<span class="label-text">Projects</span>
 		</div>
 
-		<h2 class="projects-heading">
+		<h2 class="projects-heading reveal reveal-delay-1">
 			Selected work
 		</h2>
 
-		<div class="projects-grid">
+		<div class="projects-grid reveal reveal-delay-2">
 			{projects.map((project) => (
 				<a
 					href={project.link}
@@ -88,7 +88,7 @@ const projects = [
 			))}
 		</div>
 
-		<div class="projects-more">
+		<div class="projects-more reveal reveal-delay-3">
 			<a href="https://github.com/AyoubSen" target="_blank" rel="noopener" class="more-link">
 				View all projects on GitHub
 				<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

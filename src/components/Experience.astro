@@ -1,0 +1,232 @@
+---
+const jobs = [
+	{
+		role: "Front-End Developer",
+		company: "Forvis Mazars",
+		period: "Jul 2023 — Present",
+		description: "Building and maintaining dynamic web applications with Vue.js. Led development on multiple client projects, implemented Cypress testing across the codebase, and mentored junior developers.",
+		highlights: [
+			"Contributed to 5+ major projects, currently leading development on active ones",
+			"Implemented Cypress testing, increasing coverage and reliability of critical user flows",
+			"Built reusable component libraries with Element Plus, Vuex, and Pinia",
+			"Lead client communications and cross-functional collaboration",
+		],
+	},
+	{
+		role: "Front-End Developer Intern",
+		company: "FeverTokens",
+		period: "Mar 2023 — Jul 2023",
+		description: "Developed a blockchain wallet using Next.js, TypeScript, and Web3.js. Modernized legacy codebases and contributed to a console for creating custom Web3 marketplaces.",
+		highlights: [
+			"Built a blockchain wallet facilitating secure transactions with Web3.js",
+			"Revamped outdated codebase, improving DX and overall UI/UX",
+			"Contributed to a marketplace builder expanding the platform's functionality",
+		],
+	},
+];
+---
+
+<section class="experience" id="experience">
+	<div class="experience-inner">
+		<div class="section-label reveal">
+			<span class="label-line"></span>
+			<span class="label-text">Experience</span>
+		</div>
+
+		<h2 class="experience-heading reveal reveal-delay-1">Where I've worked</h2>
+
+		<div class="timeline">
+			{jobs.map((job, i) => (
+				<div class={`timeline-item reveal reveal-delay-${i + 1}`}>
+					<div class="timeline-marker">
+						<span class="marker-dot"></span>
+						{i < jobs.length - 1 && <span class="marker-line"></span>}
+					</div>
+					<div class="timeline-content">
+						<div class="timeline-header">
+							<div>
+								<h3 class="job-role">{job.role}</h3>
+								<span class="job-company">{job.company}</span>
+							</div>
+							<span class="job-period">{job.period}</span>
+						</div>
+						<p class="job-description">{job.description}</p>
+						<ul class="job-highlights">
+							{job.highlights.map((h) => (
+								<li>{h}</li>
+							))}
+						</ul>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.experience {
+		padding: 8rem 2rem;
+		border-top: 1px solid var(--border);
+	}
+
+	.experience-inner {
+		max-width: 1000px;
+		margin: 0 auto;
+	}
+
+	.section-label {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: 1.5rem;
+	}
+
+	.label-line {
+		width: 40px;
+		height: 1px;
+		background: var(--accent);
+	}
+
+	.label-text {
+		font-family: var(--font-mono);
+		font-size: 0.8rem;
+		color: var(--accent);
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+	}
+
+	.experience-heading {
+		font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+		font-weight: 700;
+		letter-spacing: -0.03em;
+		margin-bottom: 3rem;
+	}
+
+	.timeline {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.timeline-item {
+		display: flex;
+		gap: 2rem;
+	}
+
+	.timeline-marker {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		padding-top: 0.4rem;
+	}
+
+	.marker-dot {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		border: 2px solid var(--accent);
+		background: var(--bg);
+		flex-shrink: 0;
+	}
+
+	.timeline-item:first-child .marker-dot {
+		background: var(--accent);
+	}
+
+	.marker-line {
+		width: 1px;
+		flex: 1;
+		background: var(--border);
+		margin-top: 0.5rem;
+	}
+
+	.timeline-content {
+		flex: 1;
+		padding-bottom: 3rem;
+	}
+
+	.timeline-item:last-child .timeline-content {
+		padding-bottom: 0;
+	}
+
+	.timeline-header {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+		margin-bottom: 1rem;
+		gap: 1rem;
+	}
+
+	.job-role {
+		font-size: 1.2rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		margin-bottom: 0.2rem;
+	}
+
+	.job-company {
+		font-size: 0.9rem;
+		color: var(--accent);
+		font-weight: 500;
+	}
+
+	.job-period {
+		font-size: 0.75rem;
+		font-family: var(--font-mono);
+		color: var(--text-muted);
+		white-space: nowrap;
+		padding-top: 0.2rem;
+	}
+
+	.job-description {
+		font-size: 0.95rem;
+		line-height: 1.7;
+		color: var(--text-muted);
+		margin-bottom: 1rem;
+	}
+
+	.job-highlights {
+		list-style: none;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+
+	.job-highlights li {
+		font-size: 0.85rem;
+		line-height: 1.6;
+		color: var(--text-muted);
+		padding-left: 1.25rem;
+		position: relative;
+	}
+
+	.job-highlights li::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0.55rem;
+		width: 5px;
+		height: 5px;
+		border-radius: 50%;
+		background: var(--border);
+	}
+
+	@media (max-width: 640px) {
+		.experience {
+			padding: 5rem 1.25rem;
+		}
+
+		.timeline-item {
+			gap: 1.25rem;
+		}
+
+		.timeline-header {
+			flex-direction: column;
+			gap: 0.25rem;
+		}
+
+		.timeline-content {
+			padding-bottom: 2rem;
+		}
+	}
+</style>
