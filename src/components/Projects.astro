@@ -1,6 +1,18 @@
 ---
 const projects = [
 	{
+		id: "tsw-german",
+		title: "TSW German",
+		description: "German sentence practice app with solo/co-op sessions, typing and multiple-choice modes, plus gamified progress tracking.",
+		longDescription: "A web app for practicing German in short, game-like sessions. Users can translate German and English sentences in typing or multiple-choice mode, switch between solo and co-op practice, and track XP, streaks, combos, and accuracy over time. The app also includes category-based sentence browsing, profile stats with session history, and leaderboard comparison to keep daily learning engaging.",
+		tags: ["React", "TanStack Start", "Clerk", "Convex", "Tailwind CSS"],
+		github: "https://github.com/AyoubSen",
+		liveUrl: "https://tsw-german.vercel.app/",
+		screenshots: [],
+		featured: true,
+		number: "01",
+	},
+	{
 		id: "chi-match",
 		title: "Chi-Match",
 		description: "Mobile matching app built with Expo & React Native. Uses Clerk for auth, Convex for real-time backend, and features smooth haptic feedback and native animations.",
@@ -9,7 +21,7 @@ const projects = [
 		github: "https://github.com/AyoubSen",
 		screenshots: [],
 		featured: true,
-		number: "01",
+		number: "02",
 	},
 	{
 		id: "dofus-planner",
@@ -18,9 +30,10 @@ const projects = [
 		longDescription: "A planning and strategy tool for Dofus players, built with Next.js and backed by Supabase for persistent data storage and authentication. The app helps players organize builds, plan strategies, and optimize their in-game progression. Features a clean, responsive interface with dark mode support and real-time data syncing.",
 		tags: ["Next.js", "Supabase", "React", "Tailwind"],
 		github: "https://github.com/AyoubSen",
+		liveUrl: "https://dofus-planner.vercel.app/",
 		screenshots: [],
 		featured: true,
-		number: "02",
+		number: "03",
 	},
 	{
 		id: "tsw-games",
@@ -29,9 +42,10 @@ const projects = [
 		longDescription: "A real-time multiplayer game platform built with TanStack Start and PartyKit for WebSocket-based interactions. Players can create and join lobbies, with live game state synchronization ensuring a seamless multiplayer experience. The architecture supports multiple game modes with shared infrastructure for matchmaking, scoring, and session management.",
 		tags: ["TanStack Start", "PartyKit", "React", "WebSocket"],
 		github: "https://github.com/AyoubSen",
+		liveUrl: "https://tsw-games.netlify.app/",
 		screenshots: [],
 		featured: true,
-		number: "03",
+		number: "04",
 	},
 	{
 		id: "word-guesser",
@@ -42,7 +56,7 @@ const projects = [
 		github: "https://github.com/AyoubSen",
 		screenshots: [],
 		featured: false,
-		number: "04",
+		number: "05",
 	},
 	{
 		id: "discord-bot",
@@ -53,7 +67,7 @@ const projects = [
 		github: "https://github.com/AyoubSen/PoorLittleShitv1",
 		screenshots: [],
 		featured: false,
-		number: "05",
+		number: "06",
 	},
 	{
 		id: "clean-linkedin",
@@ -64,9 +78,11 @@ const projects = [
 		github: "https://github.com/AyoubSen",
 		screenshots: [],
 		featured: false,
-		number: "06",
+		number: "07",
 	},
 ];
+const placeholderCount = (3 - (projects.length % 3)) % 3;
+const placeholders = Array.from({ length: placeholderCount });
 ---
 
 <section class="projects" id="projects">
@@ -96,6 +112,13 @@ const projects = [
 						{project.tags.map((tag) => (
 							<span class="card-tag">{tag}</span>
 						))}
+					</div>
+				</div>
+			))}
+			{placeholders.map(() => (
+				<div class="project-card project-card-placeholder" aria-hidden="true">
+					<div class="placeholder-inner">
+						<span class="placeholder-text">More projects soon</span>
 					</div>
 				</div>
 			))}
@@ -145,11 +168,23 @@ const projects = [
 			<div class="modal-tags" id="modalTags"></div>
 
 			<div class="modal-actions">
+				<a href="#" target="_blank" rel="noopener" class="modal-live" id="modalLive">
+					<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<circle cx="12" cy="12" r="10"></circle>
+						<line x1="2" y1="12" x2="22" y2="12"></line>
+						<path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+					</svg>
+					Live Demo
+					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="7" y1="17" x2="17" y2="7"></line>
+						<polyline points="7 7 17 7 17 17"></polyline>
+					</svg>
+				</a>
 				<a href="#" target="_blank" rel="noopener" class="modal-github" id="modalGithub">
 					<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
 						<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
 					</svg>
-					View on GitHub
+					GitHub
 					<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
 						<line x1="7" y1="17" x2="17" y2="7"></line>
 						<polyline points="7 7 17 7 17 17"></polyline>
@@ -168,6 +203,7 @@ const projects = [
 	const modalDescription = document.getElementById('modalDescription');
 	const modalTags = document.getElementById('modalTags');
 	const modalGithub = document.getElementById('modalGithub');
+	const modalLive = document.getElementById('modalLive');
 
 	function openModal(projectId) {
 		const project = projects.find(p => p.id === projectId);
@@ -177,6 +213,13 @@ const projects = [
 		modalNumber.textContent = project.number;
 		modalDescription.textContent = project.longDescription;
 		modalGithub.href = project.github;
+
+		if (project.liveUrl) {
+			modalLive.href = project.liveUrl;
+			modalLive.style.display = 'inline-flex';
+		} else {
+			modalLive.style.display = 'none';
+		}
 
 		modalTags.innerHTML = '';
 		project.tags.forEach(tag => {
@@ -195,7 +238,7 @@ const projects = [
 		document.body.style.overflow = '';
 	}
 
-	document.querySelectorAll('.project-card').forEach(card => {
+	document.querySelectorAll('.project-card[data-project]').forEach(card => {
 		card.addEventListener('click', () => {
 			const projectId = card.dataset.project;
 			openModal(projectId);
@@ -287,6 +330,30 @@ const projects = [
 
 	.project-card.featured {
 		grid-column: span 1;
+	}
+
+	.project-card-placeholder {
+		cursor: default;
+		pointer-events: none;
+		background: var(--bg-elevated);
+	}
+
+	.placeholder-inner {
+		height: 100%;
+		min-height: 140px;
+		border: 1px dashed var(--border);
+		border-radius: 10px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.placeholder-text {
+		font-size: 0.72rem;
+		font-family: var(--font-mono);
+		color: var(--text-muted);
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
 	}
 
 	.card-top {
@@ -504,6 +571,26 @@ const projects = [
 		border-top: 1px solid var(--border);
 	}
 
+	.modal-live {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		padding: 0.7rem 1.25rem;
+		background: var(--accent);
+		color: var(--bg);
+		border: 1px solid var(--accent);
+		border-radius: 10px;
+		font-size: 0.85rem;
+		font-weight: 600;
+		transition: all 0.2s;
+		text-decoration: none;
+	}
+
+	.modal-live:hover {
+		background: var(--accent-dim);
+		border-color: var(--accent-dim);
+	}
+
 	.modal-github {
 		display: inline-flex;
 		align-items: center;
@@ -537,6 +624,10 @@ const projects = [
 	@media (max-width: 900px) {
 		.projects-grid {
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		.project-card-placeholder {
+			display: none;
 		}
 	}
 
