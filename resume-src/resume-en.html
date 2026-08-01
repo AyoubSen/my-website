@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Ayoub Senhaji Hamim — Resume</title>
+<style>
+  /*
+   * Single column, real text, no letter-spacing on headings, no tables and
+   * no text boxes. This is deliberately plain: it is the copy that goes to
+   * job boards and applicant tracking systems, not the one humans browse.
+   * Print with Ctrl+P -> Save as PDF, margins "Default", background graphics off.
+   */
+  @page { size: A4; margin: 12mm 15mm; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Calibri", "Carlito", Arial, sans-serif;
+    font-size: 10pt;
+    line-height: 1.3;
+    color: #000;
+    background: #fff;
+    /*
+     * Disable ligatures. Calibri/Carlito substitute a single glyph for "ti"
+     * and "ft", and Chrome's PDF export writes those glyphs without a
+     * ToUnicode mapping -- so text extraction yields "So?ware" / "tes?ng".
+     * That is exactly what an ATS reads, so the keywords must stay intact.
+     */
+    font-variant-ligatures: none;
+    font-feature-settings: "liga" 0, "clig" 0, "dlig" 0;
+    max-width: 180mm;
+    margin: 0 auto;
+    /* No padding: @page already supplies the print margin. */
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 17pt;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+
+  .role {
+    font-size: 10.8pt;
+    font-weight: 600;
+    margin-top: 1mm;
+  }
+
+  .contact {
+    margin-top: 2mm;
+    font-size: 9.3pt;
+  }
+  .contact a { color: #000; text-decoration: none; }
+
+  h2 {
+    font-size: 10.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-bottom: 1px solid #000;
+    padding-bottom: 0.8mm;
+    margin-top: 3.4mm;
+    margin-bottom: 1.8mm;
+  }
+
+  .job { margin-bottom: 2.4mm; }
+  .job:last-child { margin-bottom: 0; }
+
+  .job-title { font-weight: 700; font-size: 10.3pt; }
+  .job-meta { font-size: 9.5pt; margin-bottom: 0.8mm; }
+
+  ul { margin: 0 0 0 5mm; }
+  li { margin-bottom: 0.5mm; }
+
+  .proj { margin-bottom: 1.8mm; }
+  .proj-name { font-weight: 700; }
+  .proj-stack { font-style: italic; }
+
+  p.skill { margin-bottom: 0.6mm; }
+  .edu-line { margin-bottom: 0.6mm; }
+
+  /* Never split a block across pages. */
+  .job, .proj { break-inside: avoid; page-break-inside: avoid; }
+</style>
+</head>
+<body>
+
+  <h1>Ayoub Senhaji Hamim</h1>
+  <div class="role">Software Engineer &mdash; Front-End</div>
+  <div class="contact">
+    Casablanca, Morocco (open to remote and relocation) &bull; +212 6 12 83 38 57 &bull;
+    <a href="mailto:ayoubsenhajihamim@gmail.com">ayoubsenhajihamim@gmail.com</a><br>
+    Portfolio: <a href="https://ayoubsenhajihamim.netlify.app">ayoubsenhajihamim.netlify.app</a> &bull;
+    GitHub: <a href="https://github.com/AyoubSen">github.com/AyoubSen</a> &bull;
+    LinkedIn: <a href="https://www.linkedin.com/in/ayoub-senhaji">linkedin.com/in/ayoub-senhaji</a>
+  </div>
+
+  <h2>Summary</h2>
+  <p>
+    Software engineer with three years of professional front-end experience, currently leading front-end
+    development on client-facing Vue.js applications at Forvis Mazars. Works across the modern JavaScript
+    and TypeScript ecosystem &mdash; Vue, React, Next.js &mdash; with production experience in end-to-end
+    testing, component architecture, and real-time systems.
+  </p>
+
+  <h2>Experience</h2>
+
+  <div class="job">
+    <div class="job-title">Front-End Developer &mdash; Forvis Mazars</div>
+    <div class="job-meta">Casablanca, Morocco &bull; July 2023 &ndash; Present</div>
+    <ul>
+      <li>Build and maintain client-facing Vue.js applications; contributed to five major projects and currently lead front-end development on the sixth.</li>
+      <li>Introduced Cypress end-to-end testing across critical projects, raising coverage and automating validation of key user flows.</li>
+      <li>Designed reusable component libraries and state management with Vuex and Pinia, reducing build time for new features.</li>
+      <li>Review code and mentor junior developers; set the linting and formatting standards used across the team.</li>
+      <li>Own client-facing technical communication on my projects, from scoping through delivery.</li>
+    </ul>
+  </div>
+
+  <div class="job">
+    <div class="job-title">Front-End Developer, Intern &mdash; FeverTokens</div>
+    <div class="job-meta">March 2023 &ndash; July 2023</div>
+    <ul>
+      <li>Built a blockchain wallet with Next.js, TypeScript, and Web3.js supporting secure transaction flows.</li>
+      <li>Refactored a large legacy codebase, improving developer experience, UI performance, and maintainability.</li>
+      <li>Contributed to a Web3 admin console allowing users to create and manage custom marketplaces.</li>
+    </ul>
+  </div>
+
+  <h2>Selected Projects</h2>
+
+  <div class="proj">
+    <div class="proj-name">Recall <span class="proj-stack">&mdash; React, TypeScript, TMDB API</span> &bull; github.com/AyoubSen/recall</div>
+    Rebuilds a viewing history by swiping a deck ordered for recognisability, using a viewer-calibration
+    round and a deterministic ranking engine that interleaves results to avoid repetition.
+  </div>
+
+  <div class="proj">
+    <div class="proj-name">EvilEggs <span class="proj-stack">&mdash; React, Phaser, Colyseus</span> &bull; evileggs.vercel.app</div>
+    Original turn-based artillery game with destructible terrain; online 1v1/2v2/3v3 on a Colyseus
+    authoritative server running a deterministic fixed-tick simulation.
+  </div>
+
+  <div class="proj">
+    <div class="proj-name">Store Templater <span class="proj-stack">&mdash; Next.js, Drizzle ORM, Neon</span> &bull; store-templater.vercel.app</div>
+    Schema-driven visual builder for ecommerce storefronts, exporting to static HTML/CSS or a ready-to-run
+    Next.js project.
+  </div>
+
+  <h2>Technical Skills</h2>
+  <p class="skill"><strong>Languages:</strong> TypeScript, JavaScript, HTML, CSS</p>
+  <p class="skill"><strong>Frameworks:</strong> Vue.js, React, Next.js, Astro, TanStack Start, React Native (Expo), Phaser</p>
+  <p class="skill"><strong>State and Data:</strong> Vuex, Pinia, Convex, Drizzle ORM, PostgreSQL (Neon), Supabase, REST, GraphQL</p>
+  <p class="skill"><strong>UI and Testing:</strong> Element Plus, Tailwind CSS, Bootstrap, Cypress</p>
+  <p class="skill"><strong>Real-Time, Desktop, Web3:</strong> Colyseus, PartyKit, WebSockets, Tauri with Rust, Web3.js, dApps</p>
+  <p class="skill"><strong>Tools and Practices:</strong> Git, Docker, Vite, Webpack, npm, pnpm, Agile/Scrum, responsive design, code review, accessibility</p>
+
+  <h2>Education</h2>
+  <div class="edu-line">
+    <strong>Dipl&ocirc;me d'Ing&eacute;nieur in Computer Engineering and Networks</strong> &mdash; five-year degree,
+    equivalent to a Master's / Bac+5. EMSI, Casablanca &bull; 2018 &ndash; 2023
+  </div>
+  <div class="edu-line">Final-year project: a Web 3.0 application on a hybrid cloud and blockchain backend.</div>
+
+  <h2>Languages</h2>
+  <p>English: C1 (IELTS) &bull; French: C1 (TCF) &bull; Arabic: Native &bull; German: Beginner (learning)</p>
+
+</body>
+</html>

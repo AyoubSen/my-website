@@ -1,9 +1,35 @@
 ---
 interface Props {
 	title?: string;
+	description?: string;
+	image?: string;
 }
 
-const { title = "Ayoub Senhaji — Software Engineer" } = Astro.props;
+const {
+	title = "Ayoub Senhaji — Software Engineer",
+	description = "Software Engineer & Front-End Developer based in Casablanca, Morocco. Building web, mobile, and real-time interfaces with React, TypeScript, and Astro.",
+	image = "/og.jpg",
+} = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(image, Astro.site);
+
+const personSchema = {
+	"@context": "https://schema.org",
+	"@type": "Person",
+	name: "Ayoub Senhaji",
+	jobTitle: "Software Engineer",
+	url: Astro.site?.href,
+	sameAs: [
+		"https://github.com/AyoubSen",
+		"https://www.linkedin.com/in/ayoub-senhaji",
+	],
+	address: {
+		"@type": "PostalAddress",
+		addressLocality: "Casablanca",
+		addressCountry: "MA",
+	},
+};
 ---
 
 <!doctype html>
@@ -12,13 +38,38 @@ const { title = "Ayoub Senhaji — Software Engineer" } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="description" content="Ayoub Senhaji — Software Engineer & Front-End Developer based in Casablanca, Morocco." />
+		<link rel="alternate icon" href="/favicon.ico" sizes="32x32" />
+		<link rel="canonical" href={canonical} />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content="#0a0a0b" />
+		<meta name="author" content="Ayoub Senhaji" />
 		<title>{title}</title>
+
+		<meta property="og:type" content="website" />
+		<meta property="og:site_name" content="Ayoub Senhaji" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={canonical} />
+		<meta property="og:image" content={ogImage} />
+		<meta property="og:image:width" content="1568" />
+		<meta property="og:image:height" content="755" />
+		<meta property="og:image:alt" content="Ayoub Senhaji — Software Engineer" />
+
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={ogImage} />
+
+		<script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
 	</head>
 	<body>
+		<noscript>
+			<style>.reveal { opacity: 1; transform: none; }</style>
+		</noscript>
 		<slot />
 	</body>
 </html>
@@ -101,13 +152,52 @@ const { title = "Ayoub Senhaji — Software Engineer" } = Astro.props;
 	.reveal-delay-2 { transition-delay: 0.2s; }
 	.reveal-delay-3 { transition-delay: 0.3s; }
 	.reveal-delay-4 { transition-delay: 0.4s; }
+
+	/* Focus visibility — applies to the project cards, nav links and every CTA. */
+	:focus-visible {
+		outline: 2px solid var(--accent);
+		outline-offset: 3px;
+		border-radius: 4px;
+	}
+
+	/*
+	 * Respect a reduced-motion preference. The reveal elements start at
+	 * opacity 0, so they must be forced visible here rather than merely
+	 * having their transition removed — otherwise the page renders blank.
+	 */
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			transition-delay: 0ms !important;
+			scroll-behavior: auto !important;
+		}
+
+		.reveal {
+			opacity: 1;
+			transform: none;
+		}
+	}
 </style>
 
 <script>
 	const observer = new IntersectionObserver(
 		(entries) => {
 			entries.forEach((entry) => {
-				if (entry.isIntersecting) {
+				// Reveal on intersection, but also reveal anything already
+				// scrolled past. Landing on a deep link like /#projects means
+				// the sections above never intersect, and without this they
+				// stay at opacity 0 forever once the user scrolls back up.
+				const scrolledPast = entry.boundingClientRect.top < 0;
+
+				if (entry.isIntersecting || scrolledPast) {
 					entry.target.classList.add('visible');
 					observer.unobserve(entry.target);
 				}
