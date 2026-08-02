@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ayoubsenhajihamim.netlify.app/sitemap-index.xml
+Sitemap: https://ayoubsenhajihamim.com/sitemap-index.xml
