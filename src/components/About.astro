@@ -225,14 +225,38 @@ const techGroups = [
 
 		.about-stats {
 			flex-direction: row;
+			flex-wrap: wrap;
 			border-left: none;
 			border-top: 1px solid var(--border);
 			padding-left: 0;
 			padding-top: 2rem;
+			gap: 1.5rem;
+		}
+
+		.stat {
+			flex: 1 1 8rem;
 		}
 
 		.tech-stack {
 			padding: 1.5rem;
+		}
+
+		/*
+		 * The authored line break is tuned for the desktop measure; on a phone
+		 * it produces a too-long first line. Let the text wrap on its own.
+		 */
+		.about-text h2 br {
+			display: none;
+		}
+	}
+
+	@media (max-width: 420px) {
+		.stat-value {
+			font-size: 2rem;
+		}
+
+		.stat-label {
+			font-size: 0.72rem;
 		}
 	}
 </style>

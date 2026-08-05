@@ -902,18 +902,42 @@ const placeholders = Array.from({ length: placeholderCount });
 			padding: 1.5rem;
 		}
 
+		/*
+		 * Bottom sheet. The horizontal padding is dropped so the sheet spans
+		 * the full width, and dvh keeps it inside the visible viewport when
+		 * the mobile URL bar is showing.
+		 */
 		.modal-overlay {
-			padding: 1rem;
+			padding: 1rem 0 0;
 			align-items: flex-end;
 		}
 
 		.modal {
 			max-height: 90vh;
+			max-height: 90dvh;
 			border-radius: 16px 16px 0 0;
 		}
 
 		.modal-body {
-			padding: 1.5rem;
+			padding: 1.5rem 1.25rem 2rem;
+		}
+
+		.modal-title {
+			font-size: 1.25rem;
+		}
+
+		:global(.screenshot-image) {
+			max-height: 240px;
+		}
+
+		/* Side-by-side these wrapped mid-label on a narrow screen. */
+		.modal-actions {
+			flex-direction: column;
+		}
+
+		.modal-live,
+		.modal-github {
+			justify-content: center;
 		}
 	}
 </style>

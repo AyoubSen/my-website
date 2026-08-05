@@ -45,7 +45,13 @@
 <style>
 	.hero {
 		position: relative;
+		/*
+		 * svh rather than vh: on mobile browsers 100vh is the height with the
+		 * URL bar retracted, so the hero renders taller than the visible
+		 * viewport and the bottom of it sits under the browser chrome.
+		 */
 		min-height: 100vh;
+		min-height: 100svh;
 		display: flex;
 		align-items: center;
 		padding: 6rem 2rem 4rem;
@@ -224,16 +230,52 @@
 
 	@media (max-width: 640px) {
 		.hero {
-			padding: 5rem 1.25rem 3rem;
+			padding: 6.5rem 1.25rem 4.5rem;
+		}
+
+		.hero-badge {
+			margin-bottom: 1.75rem;
+		}
+
+		.hero-title {
+			margin-bottom: 1.5rem;
 		}
 
 		.hero-sub {
 			font-size: 1rem;
+			margin-bottom: 2rem;
 		}
 
+		/*
+		 * Full-width stacked CTAs: flex-start left them at differing widths
+		 * and below a comfortable tap target.
+		 */
 		.hero-ctas {
 			flex-direction: column;
-			align-items: flex-start;
+			align-items: stretch;
+			gap: 0.75rem;
+		}
+
+		.cta-primary,
+		.cta-secondary {
+			justify-content: center;
+			text-align: center;
+			padding: 0.9rem 1.5rem;
+		}
+	}
+
+	/*
+	 * Short viewports (most phones in landscape, small phones in portrait):
+	 * the scroll indicator sits on top of the CTAs, so drop it and let the
+	 * hero grow with its content instead of forcing a full viewport.
+	 */
+	@media (max-height: 720px) and (max-width: 640px) {
+		.hero {
+			min-height: auto;
+		}
+
+		.hero-scroll-indicator {
+			display: none;
 		}
 	}
 </style>
