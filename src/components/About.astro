@@ -1,26 +1,34 @@
 ---
 const stats = [
-	{ value: "5", label: "Year Engineering Degree" },
-	{ value: "24", label: "Public Repositories" },
-	{ value: "4+", label: "Frameworks Mastered" },
+	{ value: "3+", label: "Years Shipping Production Vue" },
+	{ value: "12", label: "Live, Deployed Projects" },
+	{ value: "2,000", label: "Seeded Cases Validated Per Run" },
 ];
 
 const techGroups = [
 	{
+		category: "Languages",
+		items: ["TypeScript", "JavaScript", "Rust", "Python"],
+	},
+	{
 		category: "Front-End",
-		items: ["React", "Vue", "Next.js", "Nuxt", "Astro", "TypeScript", "Tailwind CSS"],
+		items: ["React", "Vue", "Next.js", "Nuxt", "Astro", "TanStack Start", "Tailwind CSS"],
 	},
 	{
-		category: "Mobile & Real-Time",
-		items: ["React Native / Expo", "Socket.io", "PartyKit"],
+		category: "Real-Time & Multiplayer",
+		items: ["WebSockets", "Colyseus", "PartyKit", "Socket.io", "Convex"],
 	},
 	{
-		category: "Back-End & Data",
-		items: ["Node.js", "Supabase", "Convex", "REST APIs"],
+		category: "Simulation & Graphics",
+		items: ["Three.js", "React Three Fiber", "Phaser", "Web Audio API"],
 	},
 	{
-		category: "Tools & Other",
-		items: ["Git", "GSAP", "Vite", "Python", "Rust", "Solana/Web3"],
+		category: "Desktop & Data",
+		items: ["Tauri", "SQLite", "Drizzle ORM", "Neon", "Supabase", "Cloudflare Workers"],
+	},
+	{
+		category: "Testing & Tooling",
+		items: ["Vitest", "Playwright", "Cypress", "Vite", "Git"],
 	},
 ];
 ---
@@ -34,15 +42,18 @@ const techGroups = [
 
 		<div class="about-grid">
 			<div class="about-text">
-				<h2 class="reveal reveal-delay-1">A developer who cares about<br /><span class="text-accent">craft and detail.</span></h2>
+				<h2 class="reveal reveal-delay-1">An engineer who cares about<br /><span class="text-accent">what holds up.</span></h2>
 				<p class="reveal reveal-delay-2">
-					Software Engineer with a 5-year engineering degree from Casablanca, Morocco.
-					I specialize in building front-end experiences that are fast, accessible, and visually sharp.
-					From multiplayer games to mobile apps to browser extensions — I like shipping things that people actually use.
+					Software engineer with a 5-year engineering degree, based in Casablanca, Morocco.
+					Most of what I build is systems work: deterministic simulation engines, authoritative multiplayer
+					servers, procedural generators, and local-first desktop apps in Rust and Tauri. I care about the
+					parts that are hard to see — replayable state, invariants that hold over months of simulated time,
+					and persistence that migrates old saves forward instead of dropping them.
 				</p>
 				<p class="reveal reveal-delay-3">
-					I work across the modern JS ecosystem — React, Vue, Next.js, Nuxt, React Native — and I'm always
-					exploring new territory, whether that's animation libraries, real-time systems, or blockchain.
+					Alongside that, I've spent three years shipping production Vue for enterprise clients at Forvis
+					Mazars, leading frontend work and introducing testing across the codebase. The interface half
+					matters to me too — accessibility, motion, and detail — it just isn't the whole of what I do.
 				</p>
 			</div>
 
